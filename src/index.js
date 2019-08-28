@@ -1,11 +1,15 @@
-
-import {getItems, addItem} from './api';
+import $ from 'jquery';
+import './index.css';
+import './normalize.css';
+import api from './api';
+import store from './store';
+import shoppingList from './shopping-list';
 console.log(api);
 $(document).ready(function() {
   shoppingList.bindEventListeners();
 
   // On initial load, fetch Shopping Items and render
-  getItems()
+  api.getItems()
     .then((items) => {
       items.forEach((item) => store.addItem(item));
       shoppingList.render();
