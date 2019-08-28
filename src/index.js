@@ -1,11 +1,11 @@
-'use strict';
-import {api} from './scripts';
+
+import {getItems, addItem} from './api';
 console.log(api);
 $(document).ready(function() {
   shoppingList.bindEventListeners();
 
   // On initial load, fetch Shopping Items and render
-  api.getItems()
+  getItems()
     .then((items) => {
       items.forEach((item) => store.addItem(item));
       shoppingList.render();
